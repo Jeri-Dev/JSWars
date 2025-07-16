@@ -37,35 +37,25 @@ export default function BattlePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      {/* Header */}
-      <div className="border-b border-gray-700 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-yellow-500/20 rounded-lg">
-                <IconCode className="w-6 h-6 text-yellow-400" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-white">Battle #{code}</h1>
-                <p className="text-gray-400 text-sm">JavaScript Challenge</p>
-              </div>
-            </div>
-
-            <button
-              onClick={runScript}
-              disabled={isRunning}
-              className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 disabled:bg-gray-600 rounded-lg font-medium transition-all duration-200"
-            >
-              <IconPlayerPlay className={`w-5 h-5 ${isRunning ? 'animate-spin' : ''}`} />
-              {isRunning ? 'Ejecutando...' : 'Ejecutar Código'}
-            </button>
-          </div>
+    <div className="px-6 py-8">
+      {/* Battle Info and Run Button */}
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h2 className="text-3xl font-bold text-white">Battle #{code}</h2>
+          <p className="text-gray-400 mt-1">JavaScript Challenge</p>
         </div>
+
+        <button
+          onClick={runScript}
+          disabled={isRunning}
+          className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 disabled:bg-gray-600 rounded-lg font-medium transition-all duration-200"
+        >
+          <IconPlayerPlay className={`w-5 h-5 ${isRunning ? 'animate-spin' : ''}`} />
+          {isRunning ? 'Ejecutando...' : 'Ejecutar Código'}
+        </button>
       </div>
 
-      {/* Main Content */}
-      <div className="px-6 py-8">
+      {/* Editor and Results Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Editor Panel */}
           <div className="space-y-4">
@@ -160,7 +150,6 @@ export default function BattlePage() {
             </div>
           </div>
         </div>
-      </div>
     </div>
   )
 }
