@@ -4,6 +4,7 @@ import MainPage from './app/main'
 import { Suspense } from 'react'
 import BattlePage from './app/sandbox/battle'
 import Layout from './components/Layout'
+import FriendsPage from './app/friends'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
               <BattlePage />
             </Suspense>
           } />
+          <Route path="/friends" element={<FriendsPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
