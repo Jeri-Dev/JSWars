@@ -5,16 +5,18 @@ export default function MainPage() {
 
   return <>
     <div>
-      <a href="https://vite.dev" target="_blank">
-        <img src='/javascript.svg' className="logo" alt="Vite logo" width={200} height={200} />
-      </a>
+
+      <div className="w-full flex justify-center items-center">
+        <img src='/javascript.svg' className="logo " alt="Vite logo" width={200} height={200} />
+
+      </div>
 
     </div >
     <h1>JSWars</h1>
-    <p className="read-the-docs">
+    <p>
       Bienvenido a Js Wars donde encontraras las mejores batallas de Javascript
     </p>
-    <button className="mainButton" onClick={() => {
+    <button className="mainButton mt-4" onClick={() => {
       navigate('/play/1')
     }}>Empezar</button>
   </>

@@ -31,9 +31,12 @@ export default function BattlePage() {
 
   return (
     <div>
-      <p style={{
-        fontSize: '2em',
-      }}>battle {code}</p>
+      <div className='flex '>
+        <p style={{
+          fontSize: '2em',
+        }}>battle {code}</p>
+      </div>
+
 
       <button onClick={runScript}>Run</button>
 

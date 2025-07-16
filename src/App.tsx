@@ -2,7 +2,7 @@ import './App.css'
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import MainPage from './app/main'
 import { Suspense } from 'react'
-import BattlePage from './app/sandbox/[id]/battle'
+import BattlePage from './app/sandbox/battle'
 
 function App() {
 
