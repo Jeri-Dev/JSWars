@@ -37,9 +37,9 @@ export default function BattlePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <div className="min-h-screen bg-gray-900 text-white">
       {/* Header */}
-      <div className="border-b border-gray-700 bg-gray-800/50 backdrop-blur-sm">
+      <div className="border-b border-gray-700 bg-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -55,7 +55,7 @@ export default function BattlePage() {
             <button
               onClick={runScript}
               disabled={isRunning}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 disabled:from-gray-600 disabled:to-gray-700 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 disabled:scale-100 shadow-lg hover:shadow-green-500/25"
+              className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 disabled:bg-gray-600 rounded-lg font-medium transition-all duration-200"
             >
               <IconPlayerPlay className={`w-5 h-5 ${isRunning ? 'animate-spin' : ''}`} />
               {isRunning ? 'Ejecutando...' : 'Ejecutar Código'}
@@ -65,7 +65,7 @@ export default function BattlePage() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="px-6 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Editor Panel */}
           <div className="space-y-4">
