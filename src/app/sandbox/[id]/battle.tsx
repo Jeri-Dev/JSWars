@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import { Editor, type OnMount } from '@monaco-editor/react'
 import { useRef, useState } from 'react'
 import * as monaco from 'monaco-editor'
-import { IconPlay, IconCode, IconTerminal } from '@tabler/icons-react'
+import { IconPlayerPlay, IconCode, IconTerminal } from '@tabler/icons-react'
 
 export default function BattlePage() {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null)
@@ -57,7 +57,7 @@ export default function BattlePage() {
               disabled={isRunning}
               className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 disabled:from-gray-600 disabled:to-gray-700 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 disabled:scale-100 shadow-lg hover:shadow-green-500/25"
             >
-              <IconPlay className={`w-5 h-5 ${isRunning ? 'animate-spin' : ''}`} />
+              <IconPlayerPlay className={`w-5 h-5 ${isRunning ? 'animate-spin' : ''}`} />
               {isRunning ? 'Ejecutando...' : 'Ejecutar Código'}
             </button>
           </div>
