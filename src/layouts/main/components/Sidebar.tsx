@@ -1,6 +1,6 @@
 'use client'
 
-import { ChevronLeft, Code01, Code02, Home04, Settings01, Trophy01, Users01 } from '@untitled-ui/icons-react'
+import { BarChart10, Code01, Code02, Home04, User01, Users01 } from '@untitled-ui/icons-react'
 import styles from '@/shared/styles/layouts/main/mainLayout.module.css'
 import { Box, Card, CardHeader, Typography } from '@mui/material'
 import { usePathname, useRouter } from 'next/navigation'
@@ -26,11 +26,12 @@ export function Sidebar() {
   }
 
   const listItems = [
-    { label: 'Dashboard', name: "/", icon: Home04 },
+    { label: 'Home', name: "/", icon: Home04 },
     { label: 'Wars', name: "wars", icon: Code01 },
-    { label: 'Contests', name: "contests", icon: Trophy01 },
-    { label: 'Community', name: "community", icon: Users01 },
-    { label: 'Settings', name: "settings", icon: Settings01 },
+    { label: 'Friends', name: "friends", icon: Users01 },
+    { label: 'Profile', name: "me", icon: User01 },
+    { label: 'Leadboard', name: "leadboard", icon: BarChart10 },
+
   ]
 
   const handleNavigation = (url: string, event?: React.MouseEvent) => {
@@ -110,7 +111,7 @@ export function Sidebar() {
             transition: "all 0.1s ease-in-out",
           }}
         >
-          <ChevronLeft width={"20px"} />
+          Buy me a coffe ☕️
         </Box>
       </Box>
     </Box>

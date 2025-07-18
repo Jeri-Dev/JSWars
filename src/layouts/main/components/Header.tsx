@@ -14,6 +14,9 @@ export function Header({ item }: Props) {
   return (
     <Box className={styles.header} >
       <Breadcrumb item={item} />
+      <div className='flex justify-end w-full'>
+        Jeriel Gomez
+      </div>
     </Box>
   )
 }

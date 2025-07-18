@@ -1,15 +1,13 @@
 "use client"
 
 import Link from 'next/link'
-import { Typography, Link as MuiLink, Box, IconButton, Chip } from '@mui/material'
-import { ChevronLeft, Play, SlashDivider } from '@untitled-ui/icons-react'
+import { Typography, Link as MuiLink, Box, IconButton } from '@mui/material'
+import { ChevronLeft, SlashDivider } from '@untitled-ui/icons-react'
 import { ItemMenu, ItemMenuSubItem, } from '@/shared/interfaces/TopBar'
-import { useParams, usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { formatDateCapitalize } from '@/shared/utils/date'
 import { getItemBarMenuItem } from '@/shared/helpers/menu'
-import { motion, AnimatePresence } from "framer-motion"
 import { TOP_BAR_ITEMS } from '@/shared/data/menu'
-import { PROBLEMS } from '@/shared/mock/Problem'
 import { TYPE_MENU } from '@/shared/enums/Menu'
 import { useSession } from '@/contexts/Session'
 import { APP_COLORS } from '@/config/colors'
@@ -22,77 +20,7 @@ interface Props {
 
 export function Breadcrumb({ item }: Props) {
 
-  const { id } = useParams()
 
-  const problem = PROBLEMS.find(p => p.id === Number(id))
-
-  const pathname = usePathname()
-
-  if (pathname === `/wars/${id}`) {
-    return (
-      <Box sx={{
-        width: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: "8px",
-      }}>
-        <Box sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: "8px",
-          flexGrow: 1,
-        }}>
-          <Typography sx={{
-            color: "white",
-            fontWeight: 500,
-            fontSize: "17px",
-          }}
-          >
-            {problem?.title}
-          </Typography>
-          <Chip
-            variant='filled'
-            color={problem?.difficulty === 'Easy' ? 'success' : problem?.difficulty === 'Medium' ? 'warning' : 'error'}
-            label={problem?.difficulty}
-          />
-        </Box>
-        <Box>
-          <motion.button
-            whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(247, 223, 30, 0.3)" }}
-            whileTap={{ scale: 0.98 }}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-              backgroundColor: "#f7df1e",
-              color: "black",
-              padding: "10px 24px",
-              borderRadius: 8,
-              fontWeight: 500,
-              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-              transition: "all 0.3s",
-              cursor: "pointer",
-              opacity: 1,
-            }}
-          >
-            <AnimatePresence mode="wait">
-
-              <motion.div
-                key="play"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-              >
-                <Play width={16} />
-              </motion.div>
-            </AnimatePresence>
-            Run Code
-          </motion.button>
-        </Box>
-      </Box>
-    )
-  }
 
   const slotIndex = item?.items?.findIndex((item) => item.type === TYPE_MENU.SLOTTED)
 
