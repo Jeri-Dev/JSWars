@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  width: 100%;
+  padding: 20px 24px 19px 24px;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+}
+
+.root th:first-child,
+.root tbody td:first-child {
+  padding-left: 32px;
+}
+
+.sortableContent {
+  display: flex;
+  height: 30px;
+  cursor: pointer;
+  align-items: center;
+  user-select: none;
+  gap: 5px;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.sortableContent:hover {
+  opacity: 0.6;
+}
+
+
+.tableHeader::before {
+  content: '';
+  width: 10px;
+  height: 100%;
+  left: -1px;
+  background-color: #F4F6F8;
+  position: absolute;
+}
+
+@media (max-width: 900px) {
+  .header {
+    height: fit-content;
+    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}

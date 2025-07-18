@@ -1,0 +1,55 @@
+.root {
+  pointer-events: none;
+  user-select: none;
+}
+
+
+.box {
+  pointer-events: none;
+  width: 100%;
+  height: 100vh;
+  pointer-events: fill;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.svg {
+  width: 130px;
+  transform-origin: center;
+  animation: rotate4 2s linear infinite;
+}
+
+.circle {
+  fill: none;
+  stroke: #4782cb;
+  stroke-width: 3;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash4 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate4 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash4 {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dashoffset: -125px;
+  }
+}

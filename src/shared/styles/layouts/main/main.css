@@ -1,0 +1,8 @@
+body {
+  display: inherit !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: inherit !important;
+  padding: inherit !important;
+  background-color: #0b0c0f !important;
+}
