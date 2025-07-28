@@ -79,7 +79,7 @@ export function OptionsMenu(props: Props) {
         disableScrollLock
         sx={{
           "& .MuiPaper-root": {
-            background: "#000",
+            background: "#1A1A1A",
             boxShadow: "2px 10px 14px 0px #00000005",
             display: "flex",
             flexDirection: "column",
@@ -153,7 +153,6 @@ function OptionLink(props: IOptionLink & { handler: () => void }) {
 
   return (
     <Link
-      className='hoverOpacityEffect boxHoverElement'
       href={href}
       onClick={handleClick}
       prefetch

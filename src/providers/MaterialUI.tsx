@@ -283,7 +283,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 12,
-          fontSize: 14,
+          fontSize: 12,
           height: 26,
           fontWeight: 500,
           width: "fit-content",
@@ -305,8 +305,8 @@ const theme = createTheme({
             backgroundColor: '#14532D60',
           },
           "&.MuiChip-colorWarning": {
-            color: '#FEF08A',
-            backgroundColor: '#713F12',
+            color: '#FACC15',
+            backgroundColor: '#CA8A0433',
           },
           "&.MuiChip-colorInfo": {
             color: "#00B8D9",
