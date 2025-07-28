@@ -33,6 +33,7 @@ export default function Page() {
 
           <Button
             startIcon={<Plus />}
+            href='/wars/create'
             variant='contained'
 
             sx={{
