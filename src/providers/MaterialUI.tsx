@@ -353,7 +353,7 @@ const theme = createTheme({
           height: "42px",
           fontSize: "14px",
           color: 'white',
-          backgroundColor: APP_COLORS.BG_DARK_COLOR,
+          backgroundColor: "#1A1A1A",
           borderRadius: "6px",
           border: `1px solid ${APP_COLORS.BORDER_COLOR}`,
           '& input:-webkit-autofill': {
@@ -484,7 +484,7 @@ const theme = createTheme({
           },
           '&.Mui-checked': {
             '& .MuiSvgIcon-root': {
-              color: 'white',
+              color: '#F7DF1E',
             },
           },
         },

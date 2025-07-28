@@ -41,9 +41,7 @@ export default async function NotFound() {
                   m: 0,
                   boxShadow: "none",
                 }}>
-                <CardHeader sx={{
-                  backgroundColor: "#1A1A1A",
-                }}
+                <CardHeader
                   title={
                     <Typography sx={{ fontWeight: 600, fontSize: '24px' }}>
                       JS<span style={{ color: '#F7DF1E' }}>Wars</span>
@@ -91,9 +89,7 @@ export default async function NotFound() {
           m: 0,
           boxShadow: "none",
         }}>
-        <CardHeader sx={{
-          backgroundColor: "#1A1A1A",
-        }}
+        <CardHeader
           title={
             <Typography variant="h6" sx={{ fontWeight: 600 }}>
               JS<span style={{ color: '#F7DF1E' }}>Wars</span>

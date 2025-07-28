@@ -102,7 +102,7 @@ export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
           sx={{
             fontSize: "14px",
             fontWeight: 400,
-            color: '#ffffff',
+            color: '#9CA3AF',
             marginBottom: "8px",
           }}
         >
