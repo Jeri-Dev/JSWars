@@ -1,12 +1,17 @@
 import { TabsContainer } from '@/modules/friends/components/TabsContainer'
-import { FriendsCard } from '@/modules/friends/components/FriendsCard'
-import { FriendshipStatus } from '@/shared/enums/Friends'
+import { RequestsList } from '@/modules/friends/components/RequestsList'
+import { FriendsList } from '@/modules/friends/components/FriendsList'
+import { MOCK_FRIENDS, MOCK_REQUESTS } from '@/shared/mock/Friends'
 import { Box, Button, Typography } from '@mui/material'
 import { Input } from '@/shared/components/form/Input'
 import { UserPlus01 } from '@untitled-ui/icons-react'
 import React from 'react'
 
 export default function FriendsPage() {
+
+  const friendsCount = MOCK_FRIENDS.length
+  const requestsCount = MOCK_REQUESTS.length
+
   return (
     <>
       <Box sx={{
@@ -57,24 +62,12 @@ export default function FriendsPage() {
           defaultTab={0}
           tabs={[
             {
-              label: "Friends (1)",
-              content: (
-                <FriendsCard status={FriendshipStatus.ACCEPTED} />
-              ),
+              label: `Amigos (${friendsCount})`,
+              content: <FriendsList data={MOCK_FRIENDS} />,
             },
             {
-              label: "Solicitudes (2)",
-              content: (
-                <Box sx={{
-                  width: '100%',
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '24px',
-                }}>
-                  <FriendsCard status={FriendshipStatus.PENDING} />
-                  <FriendsCard status={FriendshipStatus.PENDING} incoming />
-                </Box>
-              )
+              label: `Solicitudes (${requestsCount})`,
+              content: <RequestsList data={MOCK_REQUESTS} />,
             },
           ]}
         />
