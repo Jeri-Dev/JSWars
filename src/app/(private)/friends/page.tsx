@@ -2,9 +2,9 @@ import { TabsContainer } from '@/modules/friends/components/TabsContainer'
 import { FriendsCard } from '@/modules/friends/components/FriendsCard'
 import { FriendshipStatus } from '@/shared/enums/Friends'
 import { Box, Button, Typography } from '@mui/material'
-import React from 'react'
-import { UserPlus01 } from '@untitled-ui/icons-react'
 import { Input } from '@/shared/components/form/Input'
+import { UserPlus01 } from '@untitled-ui/icons-react'
+import React from 'react'
 
 export default function FriendsPage() {
   return (
