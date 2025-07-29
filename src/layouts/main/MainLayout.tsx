@@ -87,7 +87,6 @@ export default function MainLayout({ children, evaluatedPermissions = false, per
                 {!isProblemPage && <PageHeader />}
                 {!isProblemPage && <Box height={"40px"} />}
                 {children}
-                {!isProblemPage && <div style={{ paddingBottom: "135px" }} />}
               </>
             )}
           </Box>

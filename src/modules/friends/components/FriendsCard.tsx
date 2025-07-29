@@ -32,7 +32,7 @@ export function FriendsCard(props: Props) {
   return (
     <Card
       sx={{
-        width: { xs: '100%', sm: '350px' },
+        width: { xs: '100%', sm: '100%', md: "100%", lg: "385px" },
         border: '1px solid #e0e0e022',
         boxShadow: 'none',
         borderRadius: '8px',
