@@ -37,6 +37,7 @@ export default function AuthPage() {
           width: "100%",
           height: "100%",
           padding: "16px",
+          backdropFilter: "blur(100px)",
           borderRadius: "10px",
           border: `1px solid ${APP_COLORS.BORDER_COLOR}`,
         }}
@@ -53,6 +54,7 @@ export default function AuthPage() {
               height: "60px",
               borderRadius: "50%",
               backgroundColor: "#F7DF1E",
+
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
