@@ -5,7 +5,6 @@ import { APP_COLORS } from '@/config/colors'
 import { esES } from '@mui/material/locale'
 import { createTheme } from '@mui/material'
 import {
-
   poppins
 } from '@/config/fonts'
 
@@ -67,7 +66,7 @@ const theme = createTheme({
           fontWeight: "500",
           background: 'white',
           "&:hover": {
-            backgroundColor: '#ffffffcf',
+            backgroundColor: "#f7de1edc",
             boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
           },
           "&.Mui-disabled": {

@@ -27,10 +27,11 @@ const TABS = [
 ]
 
 export function ProblemPage() {
-  const [code, setCode] = useState(defaultCode)
-  const [activeTab, setActiveTab] = useState<TabOptions>(TabOptions.TestCases)
-
   const { id } = useParams()
+
+  const [activeTab, setActiveTab] = useState<TabOptions>(TabOptions.TestCases)
+  const [code, setCode] = useState(defaultCode)
+
   const problem = useMemo(() => PROBLEMS.find(p => p.id === Number(id)), [id])
 
   return (

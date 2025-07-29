@@ -1,3 +1,5 @@
+import { WarsDifficulty } from "../enums/Wars"
+
 export const RECENT_WARS_MOCK = [
 	{
 		title: "JavaScript Masters",
@@ -29,56 +31,56 @@ export const MOCK_EXERCISES = [
 	{
 		id: 1,
 		title: "Reverse a Linked List",
-		difficulty: "Fácil",
+		difficulty: WarsDifficulty.EASY,
 		description:
 			"Implementa una función que invierta una lista enlazada. Asegúrate de manejar correctamente las referencias de los nodos y validar listas vacías.",
 	},
 	{
 		id: 2,
 		title: "Binary Tree Traversal",
-		difficulty: "Intermedio",
+		difficulty: WarsDifficulty.MEDIUM,
 		description:
 			"Recorre un árbol binario en orden in-order, pre-order y post-order. Considera árboles vacíos o desequilibrados.",
 	},
 	{
 		id: 3,
 		title: "Dijkstra Algorithm",
-		difficulty: "Difícil",
+		difficulty: WarsDifficulty.HARD,
 		description:
 			"Calcula la ruta más corta desde un nodo a todos los demás en un grafo ponderado usando el algoritmo de Dijkstra.",
 	},
 	{
 		id: 4,
 		title: "Merge Sort",
-		difficulty: "Fácil",
+		difficulty: WarsDifficulty.HARD,
 		description:
 			"Implementa el algoritmo de ordenamiento Merge Sort. Asegúrate de manejar correctamente listas vacías o con un solo elemento.",
 	},
 	{
 		id: 5,
 		title: "Dynamic Programming - Fibonacci",
-		difficulty: "Intermedio",
+		difficulty: WarsDifficulty.MEDIUM,
 		description:
 			"Calcula el n-ésimo número de Fibonacci usando programación dinámica. Considera optimizaciones para evitar cálculos redundantes.",
 	},
 	{
 		id: 6,
 		title: "A* Pathfinding",
-		difficulty: "Difícil",
+		difficulty: WarsDifficulty.HARD,
 		description:
 			"Implementa el algoritmo A* para encontrar la ruta más corta en un mapa. Considera obstáculos y diferentes tipos de terreno.",
 	},
 	{
 		id: 7,
 		title: "Greedy Algorithms - Knapsack",
-		difficulty: "Difícil",
+		difficulty: WarsDifficulty.HARD,
 		description:
 			"Resuelve el problema de la mochila (0/1 Knapsack) usando algoritmos codiciosos. Considera diferentes enfoques y sus complejidades.",
 	},
 	{
 		id: 8,
 		title: "Graph Traversal - BFS and DFS",
-		difficulty: "Intermedio",
+		difficulty: WarsDifficulty.MEDIUM,
 		description:
 			"Implementa los algoritmos de búsqueda en anchura (BFS) y búsqueda en profundidad (DFS) en un grafo. Considera grafos dirigidos y no dirigidos.",
 	},
