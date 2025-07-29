@@ -1,12 +1,11 @@
 "use client"
 
 import { Check, HelpHexagon, Terminal, X } from '@untitled-ui/icons-react'
-import { defaultCode, PROBLEMS } from '@/shared/mock/Problem'
 import { motion, AnimatePresence } from "framer-motion"
+import { defaultCode } from '@/shared/mock/Problem'
 import { Box, Typography } from '@mui/material'
-import { useParams } from 'next/navigation'
 import Editor from '@monaco-editor/react'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 
 enum TabOptions {
   TestCases = "testcases",
@@ -27,12 +26,8 @@ const TABS = [
 ]
 
 export function ProblemPage() {
-  const { id } = useParams()
-
-  const [activeTab, setActiveTab] = useState<TabOptions>(TabOptions.TestCases)
   const [code, setCode] = useState(defaultCode)
-
-  const problem = useMemo(() => PROBLEMS.find(p => p.id === Number(id)), [id])
+  const [activeTab, setActiveTab] = useState<TabOptions>(TabOptions.TestCases)
 
   return (
     <Box sx={{ height: "100%", display: "flex", flexDirection: "column", bgcolor: "#1a1a1a", color: "#9ca3af" }}>
@@ -42,13 +37,13 @@ export function ProblemPage() {
         style={{ borderBottom: "1px solid #2e2e2e", padding: "16px 24px" }}
       >
         <Typography sx={{ color: "#f7df1e", fontWeight: "bold", fontSize: "1rem" }}>
-          Room ID: {problem?.id || "N/A"}
+          Room ID: F00000
         </Typography>
         <Typography variant="h5" sx={{ mt: 0.5, fontWeight: "600", color: "#fff" }}>
-          {problem?.title || "N/A"}
+          TESTING ROOM
         </Typography>
         <Typography variant="body2" sx={{ mt: 1, color: "#d1d5db" }}>
-          {problem?.description || "N/A"}
+          SALA DE PEPOS
         </Typography>
       </motion.header>
 

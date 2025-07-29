@@ -232,12 +232,10 @@ export function LobbyPage() {
                           </Typography>
                         </Box>
                       </Box>
-                    }
-                  />
+                    } />
                 </Card>
               ))}
             </Box>
-
           </MotionBox>
         </Box>
 
@@ -314,6 +312,7 @@ export function LobbyPage() {
           <Box sx={{ mt: 3 }}>
             <Divider sx={{ mb: 2, borderColor: '#444' }} />
             <Button
+              href={`/wars/play`}
               variant="contained"
               sx={{ backgroundColor: '#F7DF1E', color: '#000' }}
               fullWidth
@@ -322,8 +321,6 @@ export function LobbyPage() {
             </Button>
           </Box>
         </MotionBox>
-
-
       </MotionBox >
     </>
   )
