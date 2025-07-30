@@ -1,10 +1,14 @@
 'use client'
 
+import { WARS_DIFFICULTY_LABELS, WarsDifficulty } from '@/shared/enums/Wars'
+import { useBattleContext } from '@/modules/wars/contexts/BattleContext'
 import { AutoGrid } from '@/shared/components/container/AutoGrid'
 import { Select } from '@/shared/components/form/Select'
 import { Flash, Plus } from '@untitled-ui/icons-react'
 import { Input } from '@/shared/components/form/Input'
 import { MOCK_EXERCISES } from '@/shared/mock/Wars'
+import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
 import { useState } from 'react'
 import {
   CardActionArea,
@@ -21,8 +25,17 @@ import {
   Box,
 } from '@mui/material'
 
+const MotionBox = motion(Box)
+
 export default function CreateWarPage() {
+
   const [selected, setSelected] = useState<number[]>([])
+  const [description, setDescription] = useState('')
+  const [roomName, setRoomName] = useState('')
+  const [players, setPlayers] = useState('')
+
+  const router = useRouter()
+  const { setExercises } = useBattleContext()
 
   const toggleSelection = (id: number) => {
     setSelected((prev) =>
@@ -30,25 +43,44 @@ export default function CreateWarPage() {
     )
   }
 
+  const handleCreateRoom = () => {
+    if (!isFormValid) return
+
+    const selectedExercises = MOCK_EXERCISES.filter((e) =>
+      selected.includes(e.id)
+    )
+
+    setExercises(selectedExercises)
+
+    const roomId = Math.random().toString(36).substring(2, 8).toUpperCase()
+    router.push(`/wars/${roomId}`)
+  }
+
+  const isFormValid =
+    roomName.trim() !== '' && players !== ''
+
   return (
-    <Box
+    <MotionBox
       sx={{
         display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
+        flexDirection: { xs: 'column', sm: 'column', md: 'column', lg: 'row' },
         gap: 3,
         p: 3,
         width: '100%',
       }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
     >
-      <Box
+      <MotionBox
         sx={{
-          width: { xs: '100%', md: '360px' },
+          width: { xs: '100%', sm: '100%', md: '100%', lg: '360px' },
           flexShrink: 0,
           p: 2,
-          position: { md: 'sticky' },
+          position: { xs: 'static', md: 'sticky' },
           top: { md: 24 },
-          maxHeight: { md: 'calc(100vh - 48px)' },
-          overflowY: 'auto',
+          maxHeight: { xs: 'none', md: 'calc(100vh - 48px)' },
+          overflowY: { xs: 'visible', md: 'auto' },
           border: '1px solid #333',
           borderRadius: 2,
           backgroundColor: '#282929b0',
@@ -56,34 +88,46 @@ export default function CreateWarPage() {
           flexDirection: 'column',
           gap: 2,
         }}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <SvgIcon component={Plus} sx={{ color: '#F7DF1E' }} />
-          <Typography
-            sx={{ fontSize: '20px', fontWeight: 700, color: '#F7DF1E' }}
-          >
+          <Typography sx={{ fontSize: '20px', fontWeight: 700, color: '#F7DF1E' }}>
             Características de guerra
           </Typography>
         </Box>
 
-        <AutoGrid columnMinWidth='250px' columnMaxWidth='800px'>
-
-          <Input fullWidth type='text' name='room' placeholder="Nombre de sala" />
+        <AutoGrid columnMinWidth="250px" columnMaxWidth="800px">
+          <Input
+            fullWidth
+            type="text"
+            name="room"
+            placeholder="Nombre de sala"
+            value={roomName}
+            onChange={(e) => setRoomName(e.target.value)}
+          />
           <Select
             label="Número de jugadores"
             data={[
-              { value: "4", label: "4 jugadores" },
-              { value: "6", label: "6 jugadores" },
-              { value: "8", label: "8 jugadores" },
-              { value: "10", label: "10 jugadores" },
+              { value: '4', label: '4 jugadores' },
+              { value: '6', label: '6 jugadores' },
+              { value: '8', label: '8 jugadores' },
+              { value: '10', label: '10 jugadores' },
             ]}
-            defaultValue={{ value: "8", label: "8 jugadores" }}
             onChange={(option) => {
-              console.log("Seleccionado:", option)
+              setPlayers(option?.value ?? '')
             }}
           />
-          <Input name='location' type='text' multiline placeholder="Describe tu guerra" />
-
+          <Input
+            name="location"
+            type="text"
+            multiline
+            placeholder="Describe tu guerra"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
         </AutoGrid>
 
         <Divider />
@@ -112,18 +156,22 @@ export default function CreateWarPage() {
         </Box>
 
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-          <Button variant="contained" sx={{
-            backgroundColor: '#F7DF1E',
-          }} fullWidth>
+          <Button
+            onClick={handleCreateRoom}
+            variant="contained"
+            sx={{ backgroundColor: '#F7DF1E' }}
+            fullWidth
+            disabled={!isFormValid}
+          >
             Crear sala de guerra
           </Button>
           <Button variant="outlined" color="error" fullWidth>
             Cancelar
           </Button>
         </Box>
-      </Box>
+      </MotionBox>
 
-      <Box
+      <MotionBox
         sx={{
           flexGrow: 1,
           p: 2,
@@ -134,6 +182,9 @@ export default function CreateWarPage() {
           flexDirection: 'column',
           gap: 2,
         }}
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <SvgIcon component={Flash} sx={{ color: '#F7DF1E' }} />
@@ -154,7 +205,6 @@ export default function CreateWarPage() {
             pb: 2,
           }}
         >
-
           {MOCK_EXERCISES.map((exercise, index) => {
             const isSelected = selected.includes(exercise.id)
             return (
@@ -171,9 +221,10 @@ export default function CreateWarPage() {
                   borderRadius: 2,
                 }}
               >
-                <CardActionArea sx={{
-                  height: '100%',
-                }} onClick={() => toggleSelection(exercise.id)}>
+                <CardActionArea
+                  sx={{ height: '100%' }}
+                  onClick={() => toggleSelection(exercise.id)}
+                >
                   <CardHeader
                     avatar={
                       <Avatar
@@ -190,20 +241,22 @@ export default function CreateWarPage() {
                     }
                     title={
                       <Typography
-                        sx={{
-                          fontSize: '14px',
-                          fontWeight: 600,
-                          color: '#fff',
-                        }}
+                        sx={{ fontSize: '14px', fontWeight: 600, color: '#fff' }}
                       >
                         {exercise.title}
                       </Typography>
                     }
                     subheader={
                       <Chip
-                        label={exercise.difficulty}
+                        label={WARS_DIFFICULTY_LABELS[exercise.difficulty]}
+                        color={
+                          exercise.difficulty === WarsDifficulty.EASY
+                            ? 'success'
+                            : exercise.difficulty === WarsDifficulty.MEDIUM
+                              ? 'warning'
+                              : 'error'
+                        }
                         size="small"
-                        color="default"
                         sx={{ fontSize: '10px', mt: 0.5 }}
                       />
                     }
@@ -219,12 +272,7 @@ export default function CreateWarPage() {
                       />
                     }
                   />
-                  <CardContent
-                    sx={{
-                      color: '#ccc',
-                      fontSize: '13px',
-                    }}
-                  >
+                  <CardContent sx={{ color: '#ccc', fontSize: '13px' }}>
                     {exercise.description}
                   </CardContent>
                 </CardActionArea>
@@ -232,7 +280,7 @@ export default function CreateWarPage() {
             )
           })}
         </Box>
-      </Box>
-    </Box>
+      </MotionBox>
+    </MotionBox>
   )
 }

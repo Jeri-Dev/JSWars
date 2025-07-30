@@ -153,7 +153,7 @@ export function RegisterForm() {
           </Typography>
           <MaterialLink
             color={APP_COLORS.SECONDARY_ORANGE}
-            href={"/auth/"}
+            href={"/auth"}
             component={Link}
             textAlign="center"
             className='hoverOpacityElement'

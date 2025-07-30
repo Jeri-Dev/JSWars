@@ -1,6 +1,7 @@
 import "@/shared/styles/globals.css"
 import { AlertAppScreen } from '@/shared/components/screen/AlertAppScreen'
 import { LoadAppScreen } from '@/shared/components/screen/LoadAppScreen'
+import { BattleProvider } from '@/modules/wars/contexts/BattleContext'
 import { MaterialUIProvider } from '@/providers/MaterialUI'
 import { LoaderProvider } from '@/contexts/Loader'
 import { DayjsProvider } from '@/providers/Dayjs'
@@ -42,7 +43,9 @@ export default function RootLayout({
           <AlertProvider>
             <LoaderProvider>
               <DayjsProvider>
-                {children}
+                <BattleProvider>
+                  {children}
+                </BattleProvider>
               </DayjsProvider>
               <LoadAppScreen />
               <AlertAppScreen />

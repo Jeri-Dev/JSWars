@@ -94,7 +94,7 @@ export function Select(props: Props) {
           if (!value) {
             return (
               <Typography sx={{
-                color: "#9CA3AF",
+                color: "#FFF",
                 fontSize: size === "small" ? "14px" : "14px",
               }}>
                 {placeholder}
@@ -114,7 +114,7 @@ export function Select(props: Props) {
                   textOverflow: "ellipsis",
                   color: "#FFF",
                   maxWidth: valueMaxWidth,
-                  fontSize: size === "small" ? "12px" : "16px",
+                  fontSize: size === "small" ? "12px" : "14px",
                 }}
               >
                 {option.label}

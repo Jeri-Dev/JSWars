@@ -192,3 +192,9 @@ export const isValidCVV = (value: string) => {
 
 	return true
 }
+
+export function getFirstSentence(text: string) {
+	const index = text.indexOf(".")
+	if (index === -1) return text
+	return text.slice(0, index + 1)
+}

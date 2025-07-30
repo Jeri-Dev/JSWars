@@ -5,11 +5,11 @@ import { ArrowNarrowRight, Lock01, User03 } from '@untitled-ui/icons-react'
 import { SubmitForm } from '@/shared/components/logic/Form'
 import { Input } from '@/shared/components/form/Input'
 import { setCookies } from '@/shared/utils/cookies'
+import { loginUserService } from '@/services/auth'
 import { APP_COLORS } from '@/config/colors'
 import { useState, useEffect } from 'react'
 import { useSubmit } from '@/hooks/useForm'
 import Link from 'next/link'
-import { loginUserService } from '@/services/auth'
 
 export function LoginForm() {
   const [emailStored, setEmailStored] = useState("")
@@ -117,6 +117,19 @@ export function LoginForm() {
               }
             />
 
+            <MaterialLink
+              color={APP_COLORS.SECONDARY_ORANGE}
+              href={"/auth"}
+              component={Link}
+              textAlign="center"
+              className='hoverOpacityElement'
+              sx={{
+                color: '#F7DF1E',
+                fontSize: '13px',
+              }}
+            >
+              Olvidé mi Contraseña
+            </MaterialLink>
 
           </Box>
         )}
