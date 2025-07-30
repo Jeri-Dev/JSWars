@@ -7,19 +7,71 @@ import { Input } from '@/shared/components/form/Input'
 import { APP_COLORS } from '@/config/colors'
 import Link from 'next/link'
 import { Select } from '@/shared/components/form/Select'
+import { GENERAL_INTEGRATION_ERROR_MESSAGE, GLOBAL_TOKEN, STORAGES } from '@/config/constants'
+import { setCookies } from '@/shared/utils/cookies'
+import { registerUserService } from '@/services/auth'
+import { useSubmit } from '@/hooks/useForm'
+import { CAPTCHA_PUBLIC_KEY } from '@/config/enviroments'
+import ReCAPTCHA from 'react-google-recaptcha'
+import { useState } from 'react'
 
 export function RegisterForm() {
+
+  const [captchaKey, setCaptchaKey] = useState<string | null>(null)
+
+  const handleChangeCaptcha = (key: string | null) => {
+    setCaptchaKey(key)
+  }
+
+  console.log(CAPTCHA_PUBLIC_KEY)
+
+
+  const submit = useSubmit(async ({ resolve, data: payload, reject }) => {
+
+    if (!captchaKey) {
+      return reject("Debe de completar el captcha.")
+    }
+
+    try {
+      const { error, data, ok } = await registerUserService(payload)
+
+      if (!ok) {
+        return reject(error.messages[0].message)
+      }
+
+      (window as any)[GLOBAL_TOKEN] = data.result
+
+      await setCookies([
+        {
+          name: STORAGES.TOKEN,
+          value: data.result,
+          days: 30
+        },
+      ])
+
+      resolve({
+        message: "Registro exitoso",
+        redirect: "/"
+      })
+
+
+    } catch {
+      reject(GENERAL_INTEGRATION_ERROR_MESSAGE)
+    }
+  })
+
   return (
     <SubmitForm
+      submit={submit}
       style={{
-        maxWidth: "410px",
+        maxWidth: "1000px",
       }}
     >
       <Box sx={{
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        gap: "8px",
+        gap: "24px",
         width: "100%",
       }}>
         <Input
@@ -37,7 +89,13 @@ export function RegisterForm() {
         />
       </Box>
 
-      <AutoGrid columnMinWidth='60%'>
+      <AutoGrid columnMinWidth='50%'>
+        <Input
+          label="Nombre de usuario"
+          name="userName"
+          placeholder="JoeDev"
+          required
+        />
         <Input
           label="Correo"
           name="email"
@@ -56,7 +114,6 @@ export function RegisterForm() {
         <Input
           type='password'
           label="Confirmar contraseña"
-          name="confirmPassword"
           placeholder="Ingresa tu contraseña"
           required
         />
@@ -84,8 +141,13 @@ export function RegisterForm() {
           placeholder="Ingresa la respuesta a la pregunta de seguridad"
           required
         />
-        <Typography>a</Typography>
       </AutoGrid>
+
+      <ReCAPTCHA
+        sitekey={CAPTCHA_PUBLIC_KEY}
+        onChange={handleChangeCaptcha}
+        hl="es"
+      />
 
       <Box sx={{
         display: "flex",

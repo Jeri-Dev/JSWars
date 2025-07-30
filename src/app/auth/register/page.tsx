@@ -1,11 +1,11 @@
-import { LoginForm } from '@/modules/auth/components/LoginForm'
-import { LogOut01, UserPlus01, } from '@untitled-ui/icons-react'
+import { UserPlus01 } from '@untitled-ui/icons-react'
 import { Box, Typography } from '@mui/material'
 import "@/shared/styles/layouts/auth/auth.css"
 import { APP_COLORS } from '@/config/colors'
 import { RegisterForm } from '@/modules/auth/components/RegisterForm'
 
 export default function AuthPage() {
+
   return (
     <Box
       sx={{
@@ -32,7 +32,7 @@ export default function AuthPage() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          maxWidth: "480px",
+          maxWidth: "1100px",
           maxHeight: "fit-content",
           background: "#2A2A2A",
           width: "100%",

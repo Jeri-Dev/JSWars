@@ -68,6 +68,7 @@ export function Select(props: Props) {
         <Typography gutterBottom sx={{
           fontSize: "14px",
           marginBottom: "8px",
+          color: "#9CA3AF",
         }}>
           {label}
         </Typography>
@@ -94,7 +95,7 @@ export function Select(props: Props) {
           if (!value) {
             return (
               <Typography sx={{
-                color: "#FFF",
+                color: "#9CA3AF",
                 fontSize: size === "small" ? "14px" : "14px",
               }}>
                 {placeholder}
@@ -112,7 +113,7 @@ export function Select(props: Props) {
                   whiteSpace: "nowrap",
                   overflow: "clip",
                   textOverflow: "ellipsis",
-                  color: "#FFF",
+                  color: "#fff",
                   maxWidth: valueMaxWidth,
                   fontSize: size === "small" ? "12px" : "14px",
                 }}
