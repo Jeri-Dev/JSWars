@@ -6,6 +6,7 @@ import { ArrowNarrowRight } from '@untitled-ui/icons-react'
 import { Input } from '@/shared/components/form/Input'
 import { APP_COLORS } from '@/config/colors'
 import Link from 'next/link'
+import { Select } from '@/shared/components/form/Select'
 
 export function RegisterForm() {
   return (
@@ -19,6 +20,7 @@ export function RegisterForm() {
         flexDirection: "row",
         alignItems: "center",
         gap: "8px",
+        width: "100%",
       }}>
         <Input
           label="Nombre"
@@ -58,6 +60,31 @@ export function RegisterForm() {
           placeholder="Ingresa tu contraseña"
           required
         />
+
+        <Select
+          label="Pregunta de seguridad"
+          name="securityQuestion"
+          placeholder="Selecciona una pregunta de seguridad"
+          data={[
+            '¿Cuál es el nombre de tu mascota?',
+            '¿Cuál es el nombre de tu primer escuela?',
+            '¿Cuál es el nombre de tu mejor amigo?',
+            '¿Cuál es el nombre de tu ciudad natal?',
+            '¿Cuál es el nombre de tu primer amor?',
+          ].map((question) => ({
+            label: question,
+            value: question,
+          }))}
+        />
+
+        <Input
+          type='text'
+          label="Respuesta"
+          name="securityAnswer"
+          placeholder="Ingresa la respuesta a la pregunta de seguridad"
+          required
+        />
+        <Typography>a</Typography>
       </AutoGrid>
 
       <Box sx={{
@@ -126,7 +153,7 @@ export function RegisterForm() {
           </Typography>
           <MaterialLink
             color={APP_COLORS.SECONDARY_ORANGE}
-            href={"/auth/login"}
+            href={"/auth/"}
             component={Link}
             textAlign="center"
             className='hoverOpacityElement'

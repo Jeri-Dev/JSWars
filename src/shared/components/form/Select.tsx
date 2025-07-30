@@ -94,8 +94,8 @@ export function Select(props: Props) {
           if (!value) {
             return (
               <Typography sx={{
-                color: "#FFF",
-                fontSize: size === "small" ? "14px" : "16px",
+                color: "#9CA3AF",
+                fontSize: size === "small" ? "14px" : "14px",
               }}>
                 {placeholder}
               </Typography>

@@ -51,7 +51,7 @@ export function AlertAppScreen() {
         {config && (
           <>
             <Box>
-              <Icon color={"#FFF"} width={60} height={60} />
+              <Icon color={"#F7DF1E"} width={60} height={60} />
             </Box>
             <Box
               sx={{

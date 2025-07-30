@@ -12,8 +12,8 @@ export const registerUserService = (data: IRegisterUser) => {
 	return result
 }
 
-export const loginUserService = (data: IRegisterUser) => {
-	const result = POST({
+export const loginUserService = async (data: IRegisterUser) => {
+	const result = await POST({
 		url: "/auth/login",
 		data: data,
 	})

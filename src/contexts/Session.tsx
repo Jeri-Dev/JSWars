@@ -1,10 +1,10 @@
 "use client"
 import { GLOBAL_TOKEN, STORAGES, GLOBAL_PERMISSIONS } from '@/config/constants'
 import { createContext, useContext, useState, ReactNode } from 'react'
-import { IUserLoggeding } from '@/interfaces/UserLoggeding'
 import { setCookies } from '@/shared/utils/cookies'
 import { decodeToken } from '@/hooks/useReadToken'
 import { useRouter } from 'next/navigation'
+import { IUserLoggeding } from '@/interfaces/UserLoggeding'
 
 interface SessionContextType {
   setData: (token: string) => void

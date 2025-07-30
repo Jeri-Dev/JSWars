@@ -19,6 +19,7 @@ export async function setCookies(
 			},
 			body: JSON.stringify(cookies),
 		})
+
 		const result = await response.json()
 		if (!response.ok) {
 			throw new Error(result.error || "Error al establecer cookies")

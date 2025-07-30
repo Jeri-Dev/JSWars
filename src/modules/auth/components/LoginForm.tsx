@@ -36,12 +36,12 @@ export function LoginForm() {
         return reject(error.messages[0].message)
       }
 
-      (window as any)[GLOBAL_TOKEN] = data.result.token
+      (window as any)[GLOBAL_TOKEN] = data.result
 
       await setCookies([
         {
           name: STORAGES.TOKEN,
-          value: data.result.token,
+          value: data.result,
           days: 30
         },
       ])
@@ -117,19 +117,7 @@ export function LoginForm() {
               }
             />
 
-            <MaterialLink
-              color={APP_COLORS.SECONDARY_ORANGE}
-              href={"/auth/perdi-mi-contrasena"}
-              component={Link}
-              textAlign="center"
-              className='hoverOpacityElement'
-              sx={{
-                color: '#F7DF1E',
-                fontSize: '13px',
-              }}
-            >
-              Olvidé mi Contraseña
-            </MaterialLink>
+
           </Box>
         )}
       </Box>
